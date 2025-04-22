@@ -3,47 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo MCP - Home</title>
+    <title>Demo MCP - Home Mejorado</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f5f5f5;
+            background-color: #f0f2f5;
+            color: #333;
         }
         
         .container {
             text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: #2b6cb0;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 25px;
+            color: #4a5568;
         }
         
         button {
-            padding: 12px 24px;
+            padding: 12px 28px;
             font-size: 18px;
-            background-color: #4CAF50;
+            background-color: #3182ce;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
         }
         
         button:hover {
-            background-color: #45a049;
+            background-color: #2c5282;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <button onclick="mostrarMensaje()">Presiona</button>
+        <h1>Bienvenido a Demo MCP</h1>
+        <p>Esta es una demostración mejorada del Model Context Protocol. Presiona el botón para ver un mensaje personalizado.</p>
+        <button onclick="mostrarMensaje()">Presiona Aquí</button>
+        <div id="mensaje" class="message"></div>
     </div>
 
     <script>
         function mostrarMensaje() {
-            alert("¡Hola mundo!");
+            const mensaje = document.getElementById('mensaje');
+            mensaje.innerHTML = "¡Hola! Este es un mensaje personalizado para el Demo MCP. La interfaz ha sido mejorada con un diseño más moderno y atractivo.";
+            mensaje.style.display = 'block';
+            
+            // Ocultar el mensaje después de 5 segundos
+            setTimeout(() => {
+                mensaje.style.display = 'none';
+            }, 5000);
         }
     </script>
 </body>
