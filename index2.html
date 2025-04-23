@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo MCP - Página Secundaria</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e6f7ff;
+            color: #333;
+        }
+        
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: #0072c6;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            margin-bottom: 25px;
+            color: #4a5568;
+            font-size: 18px;
+        }
+        
+        button {
+            padding: 12px 28px;
+            font-size: 18px;
+            background-color: #0072c6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #005ea2;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        a {
+            color: #0072c6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Hola Mundo!</h1>
+        <p>Bienvenido a la segunda página de demostración del Model Context Protocol (MCP).</p>
+        
+        <button onclick="saludar()">Saludar</button>
+        
+        <div class="links">
+            <a href="index.html">Volver a la página principal</a>
+        </div>
+    </div>
+
+    <script>
+        function saludar() {
+            // Crear un elemento para mostrar el mensaje
+            const mensaje = document.createElement('p');
+            mensaje.textContent = '¡Hola desde la página secundaria!';
+            mensaje.style.color = '#0072c6';
+            mensaje.style.fontWeight = 'bold';
+            mensaje.style.marginTop = '20px';
+            
+            // Obtener el contenedor
+            const container = document.querySelector('.container');
+            
+            // Añadir el mensaje antes del div de enlaces
+            const links = document.querySelector('.links');
+            container.insertBefore(mensaje, links);
+            
+            // Eliminar el mensaje después de 3 segundos
+            setTimeout(() => {
+                mensaje.style.transition = 'opacity 1s';
+                mensaje.style.opacity = '0';
+                
+                // Eliminar el elemento después de la transición
+                setTimeout(() => {
+                    mensaje.remove();
+                }, 1000);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
